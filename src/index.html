@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module" src="index.ts"></script>
+    <meta charset="UTF-8" />
+    <title>WARP</title>
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" type="text/css" />
+    <link rel="stylesheet" href="player.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="appsettings.js"></script>
+  </head>
+  <body class="bg-slate-900 p-4">
+    <header class="absolute top-4 right-4">
+      <a
+        class="w-10 h-10 lg:w-16 lg:h-16"
+        href="https://github.com/ta-moq/public-moq-demo"
+        target="_blank"
+      >
+        <img src="assets/github-mark-white.svg" class="github_logo" />
+      </a>
+    </header>
+
+    <main id="main w-screen pb-8">
+      <section class="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div id="player w-full">
+          <h1 class="text-3xl font-bold text-white pb-4">Live Feed</h1>
+          <div id="screen" class="relative">
+            <video id="vid" controls></video>
+          </div>
+
+          <div id="controls" class="flex flex-row justify-start gap-4">
+            <button type="button" id="start">Start</button>
+            <button type="button" id="live" disabled>Go Live</button>
+
+            <select id="resolutions" disabled>
+              <option>Set resolution to:</option>
+              <option value="auto">Auto</option>
+            </select>
+
+            <select name="category" id="category" disabled>
+              <option value="0" selected>Stream</option>
+              <option value="2">Hybrid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <h1 class="text-3xl font-bold text-white pb-4">Slides</h1>
+          <canvas id="slide"></canvas>
+          <p id="title" class="text-center text-white font-bold"></p>
+          <a href="assets/slides.pdf" target="_blank" class="text-center text-blue-500 hover:cursor-pointer hover:text-blue-600 underline"><p>Download slides</p></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
