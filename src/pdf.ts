@@ -65,6 +65,7 @@ interface RPCMessage {
 
 function watchChanges(document: PDFDocumentProxy) {
   const ws = new WebSocket(WEBSOCKET_ENDPOINT);
+  slideTitle.textContent = "Connecting to server...";
 
   ws.onmessage = async (event) => {
     const data: RPCMessage = JSON.parse(event.data);
@@ -72,6 +73,17 @@ function watchChanges(document: PDFDocumentProxy) {
       currentPage = data;
       queueRender(document);
     }
+  };
+
+  ws.onclose = () => {
+    setTimeout(() => {
+      watchChanges(document);
+    }, 1000);
+  };
+
+  ws.onerror = (error) => {
+    console.error("WebSocket error: ", error);
+    slideTitle.textContent = "Error connecting to server, refresh?";
   };
 }
 
