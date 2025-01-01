@@ -1,5 +1,5 @@
 window.config = {
-  serverURL: ":4443",
+  serverURL: "https://moq.rorre.me:8443",
   resolutions: { 1: "360p", 0: "720p" },
   throttleData: {
     209715200: "200Mb/s",
